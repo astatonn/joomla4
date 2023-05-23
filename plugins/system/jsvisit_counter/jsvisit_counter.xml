@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<extension version="3.9" type="plugin" group="system"
+	method="upgrade">
+	<name>System - jsvisit Visitor Counter</name>
+	<author>Joachim Schmidt</author>
+	<creationDate>April 2023</creationDate>
+	<copyright>(C) All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>joachim.schmidt@jschmidt-systemberatung.de</authorEmail>
+	<authorUrl>https://www.jschmidt-systemberatung.de</authorUrl>
+	<version>2.1.3.6</version>
+	<description>PLG_JSVISIT_COUNTER_XML_DESCRIPTION</description>
+	<languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.plg_system_jsvisit_counter.ini</language>
+		<language tag="en-GB">en-GB/en-GB.plg_system_jsvisit_counter.sys.ini</language>
+		<language tag="de-DE">de-DE/de-DE.plg_system_jsvisit_counter.ini</language>
+		<language tag="de-DE">de-DE/de-DE.plg_system_jsvisit_counter.sys.ini</language>
+		<language tag="fr-FR">fr-FR/fr-FR.plg_system_jsvisit_counter.ini</language>
+		<language tag="fr-FR">fr-FR/fr-FR.plg_system_jsvisit_counter.sys.ini</language>
+	</languages>
+	<files>
+		<filename plugin="jsvisit_counter">jsvisit_counter.php</filename>
+		<filename>index.html</filename>
+		<filename>helper.php</filename>
+		<filename>install_plg_jsvisit_counter.php</filename>
+	</files>
+	<media folder="plg_system_jsvisit"	destination="plg_system_jsvisit">
+	    <folder>images</folder>
+		<folder>js</folder>
+	</media>
+	<scriptfile>install_plg_jsvisit_counter.php</scriptfile>
+	<updateservers>
+		<server type="extension" priority="1" name="plg_jsvisit_counter Updates" >https://www.jschmidt-systemberatung.de/downloads/plg_jsvisit_counter_updates.xml</server>
+	</updateservers>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+			
+				<field type="number" name="sessiontime"
+					description="PLG_JSVISIT_COUNTER_SESSION_VALUE_DESC" label="PLG_JSVISIT_COUNTER_SESSION_VALUE_LABEL"
+					default="120" min="0" max="1440"/>
+	
+	            <field name="checkbot" type="list" default="1"
+					label="PLG_JSVISIT_COUNTER_BOT" description="PLG_JSVISIT_COUNTER_BOT_DESC">
+					<option value="0">NO_NO</option>
+					<option value="1">YES_YES</option>
+				</field>
+				<field name="server1" type="list" default="1"
+					label="PLG_JSVISIT_COUNTER_SERVER1" description="PLG_JSVISIT_COUNTER_SERVER1_DESC">
+					<option value="0">NO_NO</option>
+					<option value="1">YES_YES</option>
+				</field>
+				<field name="server2" type="list" default="1"
+					label="PLG_JSVISIT_COUNTER_SERVER2" description="PLG_JSVISIT_COUNTER_SERVER2_DESC">
+					<option value="0">NO_NO</option>
+					<option value="1">YES_YES</option>
+				</field>
+				<field name="server3" type="list" default="1"
+					label="PLG_JSVISIT_COUNTER_SERVER3" description="PLG_JSVISIT_COUNTER_SERVER3_DESC">
+					<option value="0">NO_NO</option>
+					<option value="1">YES_YES</option>
+				</field>
+						
+				<field name="server4" type="text" default="" cols="50"
+					label="PLG_JSVISIT_COUNTER_SERVER4" description="PLG_JSVISIT_COUNTER_SERVER4_DESC">
+				</field>
+										
+			</fieldset>
+			
+		</fields>
+	</config>
+</extension>

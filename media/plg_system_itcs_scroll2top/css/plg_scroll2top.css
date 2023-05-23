@@ -1,0 +1,144 @@
+/**
+* Joomla.Plugin - itcs Scroll to Top Button
+* ------------------------------------------------------------------------
+* @package     itcs Scroll to Top Button
+* @author      it-conserv.de
+* @copyright   2020 it-conserv.de
+* @license     GNU/GPLv3 <http://www.gnu.org/licenses/gpl-3.0.de.html>
+* @link        https://it-conserv.de
+* ------------------------------------------------------------------------
+*/
+
+/* Button Scroll to top */
+/* modified http://littlesnippets.net/1452-2/ */
+
+.scrollToTop{
+	position:fixed;
+	bottom:20px;
+	right:20px;
+	z-index: 100;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 1s, opacity 2s ease-in-out;
+}
+
+.scrollToTop.visible {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
+
+/* small */
+.scrollToTop.small{
+  font-size: 20px;
+  width: calc(2.1*20px);
+  margin: 20px;
+  height: calc(2.1*20px);
+  line-height: calc(2.1*20px);
+}
+
+.scrollToTop.small [class^="fa-"]::before,
+.scrollToTop.small [class*=" fa-"]::before{
+  font-size: 20px;
+  width: calc(1.8*20px);
+  line-height: calc(1.8*20px);
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* medium */
+.scrollToTop.medium{
+  font-size: 30px;
+  width: calc(2.1*30px);
+  margin: 30px;
+  height: calc(2.1*30px);
+  line-height: calc(2.1*30px);
+}
+
+.scrollToTop.medium [class^="fa-"]::before,
+.scrollToTop.medium [class*=" fa-"]::before{
+  font-size: 30px;
+  width: calc(1.8*30px);
+  line-height: calc(1.8*30px);
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* large */
+.scrollToTop.large{
+  font-size: 40px;
+  width: calc(2.1*40px);
+  margin: 40px;
+  height: calc(2.1*40px);
+  line-height: calc(2.1*40px);
+}
+
+.scrollToTop.large [class^="fa-"]::before,
+.scrollToTop.large [class*=" fa-"]::before{
+  font-size: 40px;
+  width: calc(1.8*40px);
+  line-height: calc(1.8*40px);
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.scrollToTop img{
+  position: absolute;
+  margin: auto;
+  width: 70%;
+  height: 70%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.scrollToTop.snip1452,
+.scrollToTop.snip1452 [class^="fa-"]::before,
+.scrollToTop.snip1452 [class*="fa-"]::before{
+  color: rgba(140, 140, 150, 0.8);
+  display: inline-block;
+  text-align: center;
+  -webkit-perspective: 50em;
+  perspective: 50em;
+  text-decoration: none;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.scrollToTop.snip1452:after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border: 2px solid rgba(140, 140, 150, 0.8);
+  content: '';
+  z-index: -1;
+  border-radius: 50%;
+  -webkit-transform: rotateY(360deg);
+  transform: rotateY(360deg);
+}
+.snip1452:before,
+.snip1452:after,
+.scrollToTop.snip1452 [class^="fa-"]::before,
+.scrollToTop.snip1452 [class*="fa-"]::before {
+  -webkit-transition: all 0.8s ease-in-out;
+  transition: all 0.8s ease-in-out;
+}
+
+.scrollToTop.snip1452:hover{
+  cursor: pointer;
+}
+
+.snip1452.yellow:hover,.scrollToTop.snip1452.yellow:hover [class^="fa-"]::before,.scrollToTop.snip1452.yellow:hover [class*="fa-"]::before{color: #f39c12;}
+.snip1452.blue:hover,.scrollToTop.snip1452.blue:hover [class^="fa-"]::before,.scrollToTop.snip1452.blue:hover [class*="fa-"]::before{color: #2980b9;}
+.snip1452.red:hover,.scrollToTop.snip1452.red:hover [class^="fa-"]::before,.scrollToTop.snip1452.red:hover [class*="fa-"]::before{color: #c0392b;}
+
+.snip1452.yellow:hover:after{border-color: #f39c12;}
+.snip1452.blue:hover:after{border-color: #2980b9;}
+.snip1452.red:hover:after{border-color: #c0392b;}
+
+.snip1452:hover:after{
+  -webkit-transform: rotateY(0);
+  transform: rotateY(0);
+}

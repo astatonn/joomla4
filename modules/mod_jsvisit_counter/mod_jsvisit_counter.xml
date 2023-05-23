@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<extension version="3.9" type="module" method="upgrade" client="site">
+	<name>jsvisit Visitor Counter</name>
+	<author>Joachim Schmidt</author>
+	<creationDate>April 2023</creationDate>
+	<copyright>(C) All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>joachim.schmidt@jschmidt-systemberatung.de</authorEmail>
+	<authorUrl>https://www.jschmidt-systemberatung.de</authorUrl>
+	<version>2.1.3.6</version>
+	<description>MOD_JSVISIT_COUNTER_XML_DESCRIPTION</description>
+	<languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.mod_jsvisit_counter.ini</language>
+		<language tag="en-GB">en-GB/en-GB.mod_jsvisit_counter.sys.ini</language>
+		<language tag="de-DE">de-DE/de-DE.mod_jsvisit_counter.ini</language>
+		<language tag="de-DE">de-DE/de-DE.mod_jsvisit_counter.sys.ini</language>		
+		<language tag="de-AT">de-AT/de-AT.mod_jsvisit_counter.ini</language>
+		<language tag="de-AT">de-AT/de-AT.mod_jsvisit_counter.sys.ini</language>		
+		<language tag="de-CH">de-CH/de-CH.mod_jsvisit_counter.ini</language>
+		<language tag="de-CH">de-CH/de-CH.mod_jsvisit_counter.sys.ini</language>		
+		<language tag="de-LI">de-LI/de-LI.mod_jsvisit_counter.ini</language>
+		<language tag="de-LI">de-LI/de-LI.mod_jsvisit_counter.sys.ini</language>		
+		<language tag="de-LU">de-LU/de-LU.mod_jsvisit_counter.ini</language>
+		<language tag="de-LU">de-LU/de-LU.mod_jsvisit_counter.sys.ini</language>		
+		<language tag="pl-PL">pl-PL/pl-PL.mod_jsvisit_counter.ini</language>
+		<language tag="pl-PL">pl-PL/pl-PL.mod_jsvisit_counter.sys.ini</language>
+		<language tag="nl-NL">nl-NL/nl-NL.mod_jsvisit_counter.ini</language>
+		<language tag="nl-NL">nl-NL/nl-NL.mod_jsvisit_counter.sys.ini</language>
+		<language tag="fr-FR">fr-FR/fr-FR.mod_jsvisit_counter.ini</language>
+		<language tag="fr-FR">fr-FR/fr-FR.mod_jsvisit_counter.sys.ini</language>
+	</languages>
+	<files>
+		<filename module="mod_jsvisit_counter">mod_jsvisit_counter.php</filename>
+		<filename>index.html</filename>
+		<filename>helper.php</filename>
+		<filename>counter.props</filename>
+		<folder>tmpl</folder>
+		<folder>sql</folder>
+	</files>
+	<media folder="mod_jsvisit_counter"	destination="mod_jsvisit_counter">
+		<folder>css</folder>
+		<folder>images</folder>
+		<folder>flags</folder>
+	</media>
+	<updateservers>
+		<server type="extension" priority="1" name="mod_jsvisit_counter_updates">https://www.jschmidt-systemberatung.de/downloads/mod_jsvisit_counter_updates.xml</server>
+	</updateservers>
+	<install>
+		<sql>
+			<file driver="mysqli" charset="utf8">sql/visitors.install.sql</file>
+			<file driver="postgresql" charset="utf8">sql/postgresql/visitors.install.sql</file>
+		 </sql>
+	</install>
+	<uninstall>
+		<sql>
+			<file driver="mysqli" charset="utf8">sql/visitors.uninstall.sql</file>
+			<file driver="postgresql" charset="utf8">sql/postgresql/visitors.uninstall.sql</file>
+		</sql>
+	</uninstall>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field type="list" name="reset_counter"
+					description="MOD_JSVISIT_COUNTER_RESET_COUNTER__DESC" label="MOD_JSVISIT_COUNTER_RESET_COUNTER_LABEL"
+					default="0">
+					<option value="1">YES_YES</option>
+					<option value="0">NO_NO</option>
+				</field>
+				<field type="number" name="initialvalue"
+					description="MOD_JSVISIT_COUNTER_INITIAL_VALUE_DESC" label="MOD_JSVISIT_COUNTER_INITIAL_VALUE_LABEL"
+					default="0" min="0" />
+				<field type="number" name="digits" description="MOD_JSVISIT_COUNTER_DIGITS_DESC"
+					label="MOD_JSVISIT_COUNTER_DIGITS_LABEL" default="6"
+					min="4" max="9">
+				</field>
+					<field type="list" name="counter" description="MOD_JSVISIT_COUNTER_TYPE_DESC"
+					label="MOD_JSVISIT_COUNTER_TYPE_LABEL" default="1">
+				    <option value="1">(1) default</option>
+					<option value="2">(2) digital blue</option>
+					<option value="3">(3) gold</option>
+					<option value="4">(4) black</option>
+					<option value="5">(5) odometer1</option>
+					<option value="6">(6) odometer2</option>
+					<option value="7">(7) digital black</option>
+					<option value="8">(8) digital yellow</option>
+					<option value="9">(9) led green</option>
+					<option value="10">(10) Green</option>
+					<option value="11">(11) Vert</option>
+					<option value="12">(12) digital Green</option>
+					<option value="13">(13) odometer yellow</option>
+					<option value="14">(14) red</option>
+					<option value="15">(15) boffo</option>
+					<option value="16">(16) odometer gold</option>
+					<option value="17">(17) lightblue</option>
+					<option value="18">(18) odometer blue</option>
+					<option value="19">(19) purple</option>
+					<option value="20">(20) hand written</option>
+				</field>
+				<field type="list" name="counter_value" description="MOD_JSVISIT_COUNTER_VALUE_DESC"
+					label="MOD_JSVISIT_COUNTER_VALUE_LABEL" default="7">
+				    <option value="7">MOD_JSVISIT_COUNTER_TOTAL</option>
+					<option value="1">MOD_JSVISIT_COUNTER_TODAY</option>
+					<option value="3">MOD_JSVISIT_COUNTER_THIS_WEEK</option>
+					<option value="5">MOD_JSVISIT_COUNTER_THIS_MONTH</option>
+					<option value="2">MOD_JSVISIT_COUNTER_YESTERDAY</option>
+					<option value="4">MOD_JSVISIT_COUNTER_LAST_WEEK</option>
+					<option value="6">MOD_JSVISIT_COUNTER_LAST_MONTH</option>
+				</field>	
+				<field
+					name="current_counter"
+					type="hidden"
+					value="99"
+				/>
+				<field
+					name="image"
+					type="hidden"
+					default="not-set"
+					value=""
+				/>
+				<field
+					name="digit_width"
+					type="hidden"
+					default="0"
+					value="0"
+				/>
+				<field
+					name="digit_offset"
+					type="hidden"
+					default="0"
+					value="0"
+				/>
+				<field
+					name="digit_height"
+					type="hidden"
+					default="0"
+					value="0"
+				/>
+				<field type="list" name="randomcounter"
+					description="MOD_JSVISIT_COUNTER_RANDOM_COUNTER_DESC" label="MOD_JSVISIT_COUNTER_RANDOM_COUNTER_LABEL"
+					default="0">
+					<option value="1">YES_YES</option>
+					<option value="0">NO_NO</option>
+				</field>
+				<field type="list" name="boxlayout"
+					description="MOD_JSVISIT_COUNTER_BOX_LAYOUT_DESC" label="MOD_JSVISIT_COUNTER_BOX_LAYOUT_LABEL"
+					default="1">
+					<option value="1">YES_YES</option>
+					<option value="0">NO_NO</option>
+				</field>				
+				<field type="number" name="countries"
+					description="MOD_JSVISIT_COUNTER_COUNTRIES_VALUE_DESC" label="MOD_JSVISIT_COUNTER_COUNTRIES_VALUE_LABEL"
+					default="5" min="0" max="50" />
+				<field type="number" name="percent"
+					description="MOD_JSVISIT_COUNTER_COUNTRIES_PERCENT_DESC" label="MOD_JSVISIT_COUNTER_COUNTRIES_PERCENT_LABEL"
+					default="2.0" min="1" max="50" step="0.1" >
+				</field>
+				<field name="decimals" type="number" default="1"
+					label="MOD_JSVISIT_COUNTER_DEFAULT_PRECISION_LBL" description="MOD_JSVISIT_COUNTER_DEFAULT_PRECISION_DESC"
+	                max="3" min="0">
+			    </field>	
+				<field type="list" name="show_today"
+					description="MOD_JSVISIT_COUNTER_SHOW_TODAY_DESC" label="MOD_JSVISIT_COUNTER_SHOW_TODAY_LABEL"
+					default="1">
+					<option value="1">YES_YES</option>
+					<option value="0">NO_NO</option>
+				</field>	
+				<field type="list" name="show_yesterday"
+					description="MOD_JSVISIT_COUNTER_SHOW_YESTERDAY_DESC" label="MOD_JSVISIT_COUNTER_SHOW_YESTERDAY_LABEL"
+					default="0">
+					<option value="1">YES_YES</option>
+					<option value="0">NO_NO</option>
+				</field>
+				<field type="list" name="show_thisweek"
+					description="MOD_JSVISIT_COUNTER_SHOW_THISWEEK_DESC" label="MOD_JSVISIT_COUNTER_SHOW_THISWEEK_LABEL"
+					default="1">
+					<option value="1">YES_YES</option>
+					<option value="0">NO_NO</option>
+				</field>
+				<field type="list" name="show_lastweek"
+					description="MOD_JSVISIT_COUNTER_SHOW_LASTWEEK_DESC" label="MOD_JSVISIT_COUNTER_SHOW_LASTWEEK_LABEL"
+					default="0">
+					<option value="1">YES_YES</option>
+					<option value="0">NO_NO</option>
+				</field>
+				<field type="list" name="show_thismonth"
+					description="MOD_JSVISIT_COUNTER_SHOW_THISMONTH_DESC" label="MOD_JSVISIT_COUNTER_SHOW_THISMONTH_LABEL"
+					default="1">
+					<option value="1">YES_YES</option>
+					<option value="0">NO_NO</option>
+				</field>
+				<field type="list" name="show_lastmonth"
+					description="MOD_JSVISIT_COUNTER_SHOW_LASTMONTH_DESC" label="MOD_JSVISIT_COUNTER_SHOW_LASTMONTH_LABEL"
+					default="0">
+					<option value="1">YES_YES</option>
+					<option value="0">NO_NO</option>
+				</field>
+				<field type="list" name="show_totals"
+					description="MOD_JSVISIT_COUNTER_SHOW_TOTAL_DESC" label="MOD_JSVISIT_COUNTER_SHOW_TOTAL_LABEL"
+					default="0">
+					<option value="1">YES_YES</option>
+					<option value="0">NO_NO</option>
+				</field>
+			</fieldset>
+			<fieldset name="advanced">
+				<field type="text" name="moduleclass_sfx"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					size="40" />
+				<field type="modulelayout" name="layout" description="JFIELD_ALT_MODULE_LAYOUT_DESC" label="JFIELD_ALT_LAYOUT_LABEL"/>	
+				<field type="list" name="cache" description="COM_MODULES_FIELD_CACHING_DESC"
+					label="COM_MODULES_FIELD_CACHING_LABEL" default="1">
+					<option value="1">JGLOBAL_USE_GLOBAL</option>
+					<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+				<field type="text" name="cache_time" description="COM_MODULES_FIELD_CACHE_TIME_DESC"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL" default="900" />
+				<field type="hidden" name="cachemode" default="static">
+					<option value="static" />
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

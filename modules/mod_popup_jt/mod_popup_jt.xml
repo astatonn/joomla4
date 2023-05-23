@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.0" client="site" method="upgrade">
+    <name>Pop up JT</name>
+    <creationDate>Sep 2016</creationDate>
+    <author>Joomlatema.net</author>
+    <copyright>Joomlatema.net</copyright>
+	<license>GPLv3 http://www.gnu.org/licenses/gpl-3.0.html</license>
+    <authorEmail>destek@joomlatema.net</authorEmail>
+    <authorUrl>http://www.joomlatema.net</authorUrl>
+    <version>1.6</version>
+   <description>Pop Up JT will let you to add an animated Pop-up on any page.It can be installed as a Joomla Module and published on any page you want. You can add Joomla Modules (up to 6 modules) or Manual Text in Pop Up Window. There are a lot of Pop up and Hide animation options. Auto open or Manuel open (when clicked a button) is possible. You can set a duration time to close.<ul>
+   Features:
+ <li>Joomla 3.x compatible</li>
+<li>Insert your Manual Text Content or Joomla Modules (up to 6 Modules).</li>
+<li>Toolbar Title</li>
+<li>Close Toolbar Button</li>
+<li>Padding</li>
+<li>Pop Up Background Color</li>
+<li>Pop Up Border Color</li>
+<li>Border Radius</li>
+<li>Pop Up Width</li>
+<li>Pop Up Height</li>
+<li>Show Title (Show / Hide)</li>
+<li>Pop Up Title</li>
+<li>Pop Up Horizontal Position</li>
+<li>Pop Up Vertical Position</li>
+<li>Time to Close</li>
+<li>Show Effect</li>
+<li>Show Duration</li>
+<li>Hide Effect</li>
+<li>Hide Duration</li>
+<li>Auto Open</li>
+<li>Modal Effect (Yes / No)</li>
+<li>Resizable Window</li>
+<li>Draggable Pop Up</li>
+<li>Close on Escape</li>
+<li>Title Background</li>
+<li>Title Border</li>
+<li>Title Border Radius</li>
+<li>Title Color</li>
+<li>Show Title (Show / Hide)</li></ul>
+</description>
+    <files>
+        <filename module="mod_popup_jt">mod_popup_jt.php</filename>
+        <filename module="mod_popup_jt">helper.php</filename>
+        <filename module="mod_popup_jt">index.html</filename>
+        <folder module="mod_popup_jt">language</folder>
+	   <folder>tmpl</folder>
+		 <folder module="mod_popup_jt">images</folder>
+		   <folder module="mod_popup_jt">js</folder>
+		    <folder module="mod_popup_jt">css</folder>
+    </files>
+<updateservers>
+<server type="extension" name="Pop Up JT Updates">https://www.joomlatema.net/update_server/joomla3/popup_jt.xml</server>
+</updateservers>
+    <languages>
+        <language tag="en-GB">language/en-GB.mod_popup_jt.ini</language>
+		 <language tag="tr-TR">language/tr-TR.mod_popup_jt.ini</language>
+    </languages>
+    <config>
+        <fields name="params">
+            <fieldset name="basic">			</fieldset>
+			<fieldset name="source_setting" label="POPUP_JT_MODE_SELECT">	
+                <field name="module_mode" type="list" hide_default="true" hide_none="true" default="file" label="POPUP_JT_MODE_SELECT" description="POPUP_JT_MODE_SELECT_DESC" >
+                    <option value="modules">Modules</option>
+                    <option value="html">Html Content</option>
+                </field>
+				<field name="id" type="sql" multiple="true" size="10"
+				label="Modules"
+				showon="module_mode:modules"
+				description="Select one or more Modules from the list above"
+				query="SELECT id, module, position, title FROM #__modules WHERE published=1 AND client_id=0 ORDER BY title"
+				key_field="id" value_field="title">
+				<option value="">Select Modules</option>
+			</field>
+				<field name="html_content" type="textarea"  cols="38" rows="7" showon="module_mode:html" default="If you choose html content mode you can enter your html content here." label="POPUP_JT_HTML_CONTENT" description="POPUP_JT_HTML_CONTENT_DESC" filter="raw" ></field>
+				</fieldset>
+				<fieldset name="display_setting" label="DISPLAY_SETTINGS">
+				<field name="padding" type="text" size="10" default="15px 15px 15px 15px" label="POPUP_JT_PADDING" description="POPUP_JT_PADDING_DESC"/>
+                <field name="background" type="text" size="10" default="#ffffff" label="POPUP_JT_BACKGROUND" description="POPUP_JT_BACKGROUND_DESC"/>
+                <field name="border" type="text" size="10" default="1px solid #dedede" label="POPUP_JT_BORDER_COLOR" description="POPUP_JT_BORDER_COLOR_DESC"/>
+				<field name="border_radius" type="text" size="10" default="6px" label="POPUP_JT_BORDER_RADIUS" description="POPUP_JT_BORDER_RADIUS_DESC"/>
+				<field name="popupwidth" type="text" size="10" default="300" label="POPUP_JT_POPUP_WIDTH" description="POPUP_JT_POPUP_WIDTH_DESC"/>
+				<field name="popupheight" type="text" size="10" default="auto" label="POPUP_JT_POPUP_HEIGHT" description="POPUP_JT_POPUP_HEIGHT_DESC"/>
+				<field name="showtitle" type="list" default="true" label="POPUP_JT_SHOWTITLE" description="POPUP_JT_SHOWTITLE_DESC">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+					</field>
+				<field name="popuptitle" type="text" size="10" default="Pop Up Title" label="POPUP_JT_TITLE" description="POPUP_JT_TITLE_DESC"/>
+				<field name="horizontal_position" type="list" default="center" label="POPUP_JT_HORIZONTAL_POSITION" description="POPUP_JT_HORIZONTAL_POSITION_DESC">
+                    <option value="left">Left</option>
+                    <option value="right">Right</option>
+					<option value="center">POPUP_JT_CENTER</option>
+                </field>
+				<field name="vertical_position" type="list" default="center" label="POPUP_JT_VERTICAL_POSITION" description="POPUP_JT_VERTICAL_POSITION_DESC">
+					<option value="center">POPUP_JT_CENTER</option>
+					<option value="top">Top</option>
+					<option value="bottom">Bottom</option>
+                </field>
+				<field name="time_to_close" type="text" size="10" default="5000" label="POPUP_JT_TIME_TO_CLOSE" description="POPUP_JT_TIME_TO_CLOSE_DESC"/>
+				<field name="show_effect" type="list" default="drop_up" label="POPUP_JT_SHOW_EFFECT" description="POPUP_JT_SHOW_EFFECT_DESC">
+					<option value="bounce">Bounce</option>
+					<option value="clip_vertical">Clip Vertical</option>
+					<option value="clip_horizontal">Clip Horizontal</option>
+					<option value="drop_up">Drop Up</option>
+					<option value="drop_down">Drop Down</option>
+					<option value="drop_left">Drop Left</option>
+					<option value="blind_up">Blind Up</option>
+					<option value="blind_down">Blind Down</option>
+					<option value="blind_left">Blind Left</option>
+					<option value="blind_right">Blind Right</option>
+					<option value="explode">Explode</option>
+					<option value="fade">Fade</option>
+					<option value="fold">Fold</option>
+					<option value="highlight">Highlight</option>
+					<option value="puff">Puff</option>
+					<option value="pulsate">Pulsate</option>
+					<option value="scale">Scale</option>
+					<option value="shake_up">Shake Up</option>
+					<option value="shake_down">Shake Down</option>
+					<option value="shake_left">Shake Left</option>
+					<option value="shake_right">Shake Right</option>
+					<option value="size">Size</option>					
+					<option value="slide_up">Slide Up</option>
+					<option value="slide_down">Slide Down</option>
+					<option value="slide_left">Slide Left</option>
+					<option value="slide_right">Slide Right</option>
+                </field>
+				<field name="show_duration" type="text" size="10" default="400" label="POPUP_JT_SHOW_DURATION" description="POPUP_JT_SHOW_DURATION_DESC"/>				
+				<field name="hide_effect" type="list" default="fade" label="POPUP_JT_HIDE_EFFECT" description="POPUP_JT_HIDE_EFFECT_DESC">
+					<option value="bounce">Bounce</option>
+					<option value="clip_vertical">Clip Vertical</option>
+					<option value="clip_horizontal">Clip Horizontal</option>
+					<option value="drop_up">Drop Up</option>
+					<option value="drop_down">Drop Down</option>
+					<option value="drop_left">Drop Left</option>
+					<option value="blind_up">Blind Up</option>
+					<option value="blind_down">Blind Down</option>
+					<option value="blind_left">Blind Left</option>
+					<option value="blind_right">Blind Right</option>
+					<option value="explode">Explode</option>
+					<option value="fade">Fade</option>
+					<option value="fold">Fold</option>
+					<option value="highlight">Highlight</option>
+					<option value="puff">Puff</option>
+					<option value="pulsate">Pulsate</option>
+					<option value="scale">Scale</option>
+					<option value="shake_up">Shake Up</option>
+					<option value="shake_down">Shake Down</option>
+					<option value="shake_left">Shake Left</option>
+					<option value="shake_right">Shake Right</option>
+					<option value="size">Size</option>					
+					<option value="slide_up">Slide Up</option>
+					<option value="slide_down">Slide Down</option>
+					<option value="slide_left">Slide Left</option>
+					<option value="slide_right">Slide Right</option>
+                </field>
+				<field name="hide_duration" type="text" size="10" default="300" label="POPUP_JT_HIDE_DURATION" description="POPUP_JT_HIDE_DURATION_DESC"/>
+				<field name="autoOpen" type="list" default="true" label="POPUP_JT_AUTO_OPEN" description="POPUP_JT_AUTO_OPEN_DESC">
+					<option value="true">JYES</option>
+					<option value="false">JNO</option>
+					</field>
+					<field name="modal" type="list" default="false" label="POPUP_JT_MODAL_EFFECT" description="POPUP_JT_MODAL_EFFECT_DESC">
+					<option value="true">JYES</option>
+					<option value="false">JNO</option>
+					</field>
+					<field name="resizable" type="list" default="false" label="POPUP_JT_RESIZABLE_WINDOW" description="POPUP_JT_RESIZABLE_WINDOW_DESC">
+					<option value="true">JYES</option>
+					<option value="false">JNO</option>
+					</field>
+					<field name="draggable" type="list" default="false" label="POPUP_JT_DRAGGABLE" description="POPUP_JT_DRAGGABLE_DESC">
+					<option value="true">JYES</option>
+					<option value="false">JNO</option>
+					</field>
+					<field name="closeOnEscape" type="list" default="true" label="POPUP_JT_CLOSEONESCAPE" description="POPUP_JT_CLOSEONESCAPE_DESC">
+					<option value="true">JYES</option>
+					<option value="false">JNO</option>
+					</field>
+					<field name="runOnce" type="list" default="false" label="POPUP_JT_RUNONCE" description="POPUP_JT_RUNONCE_DESC">
+					<option value="true">JYES</option>
+					<option value="false">JNO</option>
+					</field>
+					</fieldset>
+					<fieldset>
+                <field text="POPUP_JT_OTHER_SETTINGS" />
+				<field name="header_background" type="text" size="10" default="#e9e9e9" label="POPUP_JT_HEADER_BACKGROUND" description="POPUP_JT_HEADER_BACKGROUND_DESC"/>
+				 <field name="header_border" type="text" size="10" default="1px solid #dddddd" label="POPUP_JT_HEADER_BORDER" description="POPUP_JT_HEADER_BORDER_DESC"/>
+				 <field name="header_border_radius" type="text" size="10" default="6px" label="POPUP_JT_HEADER_BORDER_RADIUS" description="POPUP_JT_HEADER_BORDER_RADIUS_DESC"/>
+				 <field name="headercolor" type="text" size="10" default="#333333" label="POPUP_JT_HEADER_COLOR" description="POPUP_JT_HEADER_COLOR_DESC"/>
+               </fieldset>
+            <fieldset name="advanced">
+                <field name="moduleclass_sfx" type="text" label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"	description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+				 <field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+                <field name="spacer5" type="spacer" hr="true" />
+                <field name="cache" type="list" default="1" label="COM_MODULES_FIELD_CACHING_LABEL" description="COM_MODULES_FIELD_CACHING_DESC">
+                    <option	value="1">JGLOBAL_USE_GLOBAL</option>
+                    <option	value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+                </field>
+                <field name="cache_time" type="text" default="900" label="COM_MODULES_FIELD_CACHE_TIME_LABEL" description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
+                <field name="cachemode"	type="hidden" default="static">
+                    <option	value="static"></option>				
+                </field>
+            </fieldset>
+        </fields>
+    </config>	
+</extension>

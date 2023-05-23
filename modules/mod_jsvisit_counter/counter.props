@@ -1,0 +1,119 @@
+; @Copyright
+;
+; @package	  jsvisit_counter for Joomla! 4.x and 3.x
+; @author     Joachim Schmidt {@link http://www.jschmidt-systemberatung.de/}
+; @link       Project Site {@link http://www.jschmidt-systemberatung.de/}
+;
+; @license GNU/GPL
+; This program is free software: you can redistribute it and/or modify
+; it under the terms of the GNU General Public License as published by
+; the Free Software Foundation, either version 3 of the License, or
+; (at your option) any later version.
+;
+; Parameter description:
+;                        image:        filename of counter image (path: ../media/mod_jsvisit_counter/images)
+;                        digit_width:  width of digit in pixel 
+;                        digit_height: height of digit in pixel
+;                        digit_offset: offset to digit in pixel within digit cell 
+;
+[1]
+image="digitblue.png"
+digit_width="16"
+digit_offset="32"
+digit_height="19"
+[2]
+image="digitalblue.png"
+digit_width="16"
+digit_offset="16"
+digit_height="21"
+[3]
+image="smplgld.png"
+digit_width="13"
+digit_offset="13"
+digit_height="15"
+[4]
+image="black.png"
+digit_width="15"
+digit_offset="15"
+digit_height="20"
+[5]
+image="odometer1.png"
+digit_width="24"
+digit_offset="24"
+digit_height="28"
+[6]
+image="odometer2.png"
+digit_width="24"
+digit_offset="24"
+digit_height="28"
+[7]
+image="digitalblack.png"
+digit_width="15"
+digit_offset="15"
+digit_height="20"
+[8]
+image="digitalyellow.png"
+digit_width="16"
+digit_offset="16"
+digit_height="24"
+[9]
+image="led.png"
+digit_width="15"
+digit_offset="15"
+digit_height="20"
+[10]
+image="green.png"
+digit_width="14"
+digit_offset="14"
+digit_height="16"
+[11]
+image="vert.png"
+digit_width="22"
+digit_offset="22"
+digit_height="24"
+[12]
+image="grndig.gif"
+digit_width="15"
+digit_offset="15"
+digit_height="23"
+[13]
+image="odometer_orng.png"
+digit_width="15"
+digit_offset="15"
+digit_height="30"
+[14]
+image="red.png"
+digit_width="24"
+digit_offset="24"
+digit_height="24"
+[15]
+image="boffo.png"
+digit_width="13.9"
+digit_offset="14.2"
+digit_height="24"
+[16]
+image="odometer-gold.png"
+digit_width="21"
+digit_offset="21"
+digit_height="27"
+[17]
+image="lightblue.png"
+digit_width="12"
+digit_offset="12"
+digit_height="17"
+[18]
+image="odometer_blue.jpg"
+digit_width="18"
+digit_offset="18"
+digit_height="30"
+[19]
+image="purple.png"
+digit_width="20"
+digit_offset="20"
+digit_height="24"
+[20]
+image="hand-written.png"
+digit_width="18"
+digit_offset="18"
+digit_height="24"
+

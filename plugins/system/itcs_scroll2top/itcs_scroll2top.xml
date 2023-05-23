@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="4.*" method="upgrade" type="plugin" group="system">
+	<name>System - itcs Scroll2Top</name>
+	<author>itcs</author>
+	<creationDate>July 2022</creationDate>
+	<copyright>Copyright itcs 2022</copyright>
+	<license>GNU General Public License version 3 or later</license>
+	<authorEmail>info@it-conserv.de</authorEmail>
+	<authorUrl>www.it-conserv.de</authorUrl>
+	<version>2.1.0</version>
+	<description>
+	<![CDATA[
+	<div class="alert alert-success" style="background-color:#DFF0D8;border-color:#D6E9C6;color: #468847;padding: 1px 0;">
+		<div align="center">
+				<h2 style="color: #f39c12;">Scroll to Top</h2>
+				<p>Version 2.1.0</p>
+				<h4>A Button with CSS3 effect, ionicon, different colors and size</h4>
+				<p> </p>
+				<h5>Find your ionicon under <a href="https://ionic.io/ionicons/v2" target="_blank">https://ionic.io/ionicons/v2</a><br />
+				and the font awesome icon under <a href="https://fontawesome.com/icons/" target="_blank">https://fontawesome.com/icons/</a><br /><br />
+				Select your color (red,blue,yellow) and size (small, medium, large)</h5>
+		<p>The CSS3 Style is a free ressource from <a href="http://littlesnippets.net" target="_blank">http://littlesnippets.net</a></p>
+		<p>Copyright 2022 <a href="http://www.it-conserv.de/" title="it-conserv.de" target="_blank">www.it-conserv.de</a>.</p>
+		</div>
+		<!--
+     <style>table.adminform{width: 100%;}</style>
+	 -->
+	 </div>
+		]]>
+	</description>
+	<languages>
+		<language tag="en-GB">language/en-GB/plg_system_itcs_scroll2top.ini</language>
+		<language tag="de-DE">language/de-DE/plg_system_itcs_scroll2top.ini</language>
+	</languages>
+	<updateservers>
+		<server type="extension" priority="2" name="Plugin itcs Scroll2Top">
+			https://it-conserv.de/phocadownload/plugins/itcs_scroll2top/itcs_scroll2top-update.xml
+		</server>
+	</updateservers>
+	<changelogurl>https://it-conserv.de/phocadownload/plugins/itcs_scroll2top/itcs_scroll2top-changelog.xml</changelogurl>		
+	<files>
+		<filename plugin="itcs_scroll2top">itcs_scroll2top.php</filename>
+		<filename>index.html</filename>
+		<filename>lizenz_gpl.txt</filename>
+		<folder>fields</folder>
+		<folder>language</folder>
+		<folder>media</folder>
+	</files>
+
+	<media folder="media" destination="plg_system_itcs_scroll2top">
+		<folder>css</folder>
+		<folder>fonts</folder>
+		<folder>js</folder>
+		<file>joomla.asset.json</file>
+	</media>
+	
+	<config>
+		<fields name="params" addfieldpath="/plugins/system/itcs_scroll2top/fields">
+			<fieldset name="basic">
+				<field name="donation"
+					type="itcsdonation" 
+					label="ITCS_DONATION" 
+					description="ITCS_DONATION_DESC" 
+				/>
+				<field name="icon" 
+					type="text" 
+					default="ion-chevron-up" 
+					description="PLG_SYSTEM_SCROLL2TOP_ICON_DESC" 
+					label="PLG_SYSTEM_SCROLL2TOP_ICON" 
+				/>
+				<field name="s2t_image" 
+					type="media" 
+					default="" 
+					label="PLG_SYSTEM_SCROLL2TOP_IMG" 
+					description="PLG_SYSTEM_SCROLL2TOP_IMG_DESC" 
+					directory="/" 
+					filter="" 
+					exclude="" 
+					stripext="" 
+				/>
+				<field name="size" 
+					type="list" 
+					default="medium" 
+					label="PLG_SYSTEM_SCROLL2TOP_SIZE" 
+					description="PLG_SYSTEM_SCROLL2TOP_SIZE_DESC"
+					>
+					<option value="small">small</option>
+					<option value="medium">medium</option>
+					<option value="large">large</option>
+				</field>
+				<field name="s2t_right" 
+					type="textpx" 
+					default="20" 
+					description="PLG_SYSTEM_SCROLL2TOP_RIGHT_DESC" 
+					label="PLG_SYSTEM_SCROLL2TOP_RIGHT" 
+				/>
+				<field name="s2t_bottom" 
+					type="textpx" 
+					default="20" 
+					description="PLG_SYSTEM_SCROLL2TOP_BOTTOM_DESC" 
+					label="PLG_SYSTEM_SCROLL2TOP_BOTTOM" 
+				/>
+				<field name="color" 
+					type="list" 
+					default="blue" 
+					label="PLG_SYSTEM_SCROLL2TOP_COLOR" 
+					description="PLG_SYSTEM_SCROLL2TOP_COLOR_DESC"
+					>
+					<option value="blue">blue</option>
+					<option value="red">red</option>
+					<option value="yellow">yellow</option>
+					<option value="custom">- Custom color -</option>
+				</field>
+				<field name="s2t_color" 
+					type="color" 
+					showon="color:custom" 
+					default="#ffffff" 
+					label="PLG_SYSTEM_SCROLL2TOP_CUST_COLOR" 
+					description="PLG_SYSTEM_SCROLL2TOP_CUST_COLOR_DESC" 
+				/>	
+				<field name="bg_color" 
+					type="color"
+					format="rgba"
+					label="PLG_SYSTEM_SCROLL2TOP_BG_COLOR" 
+					description="PLG_SYSTEM_SCROLL2TOP_BG_COLOR_DESC" 
+				/>			
+			</fieldset>
+		</fields>
+	</config>
+</extension>

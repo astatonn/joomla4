@@ -1,0 +1,9 @@
+/**
+* @package SideScript Module for Joomla 3.0 By Joomlatema.net
+ * @version $Id: mod_SideScript_jt1.php  2013-25-05  Joomlatema.Net $
+ * @author Muratyil
+ * @copyright (C) 2013- Muratyil
+ * @license GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
+ **/
+.sidescriptButton{background:url(../images/openbutton_bottom.png) no-repeat;width:128px;height:35px;left:100px;position:fixed;bottom:0px;z-index:750;}
+.SideScriptArrowPos{background-image:url(../images/icons.png);background-repeat:no-repeat;background-position:-9px -25px;height:9px;width:16px;position: absolute;left:35px;bottom:-19px;}

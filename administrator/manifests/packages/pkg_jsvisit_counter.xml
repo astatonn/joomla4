@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension type="package" version="3.9" method="upgrade">
+	<name>jsvisit Visitor Counter Package</name>
+	<author>Joachim Schmidt</author>
+	<creationDate>August 2022</creationDate>
+	<packagename>jsvisit_counter</packagename>
+	<version>2.1.2.3</version>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>joachim.schmidt@jschmidt-systemberatung.de</authorEmail>
+	<authorUrl>https://www.jschmidt-systemberatung.de</authorUrl>
+	<copyright>(C) All rights reserved.</copyright>
+	<packager>Joachim Schmidt</packager>
+	<packagerurl>/www.jschmidt-systemberatung.de/</packagerurl>
+	<description>MOD_JSVISIT_COUNTER_PACKAGE_XML_DESCRIPTION</description>
+	<updateservers>
+		<server type="extension" name="pkg_jsvisit_counter Updates" priority="1" >https://www.jschmidt-systemberatung.de/downloads/pkg_jsvisit_counter_updates.xml</server>
+	</updateservers>
+	<languages folder='language'>
+		<language tag="de-DE">de-DE/de-DE.pkg_jsvisit_counter.sys.ini</language>
+		<language tag="en-GB">en-GB/en-GB.pkg_jsvisit_counter.sys.ini</language>
+	</languages>
+	<files>
+		<file type="plugin" id="jsvisit_counter" group="system">plg_jsvisit_counter-v2.1.2.zip</file>
+		<file type="module" id="mod_jsvisit_counter" client="site">mod_jsvisit_counter-v2.1.2.zip</file>
+	</files>
+</extension>

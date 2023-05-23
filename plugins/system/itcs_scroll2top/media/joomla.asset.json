@@ -1,0 +1,42 @@
+{
+	"$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
+	"name": "plg_system_itcs_scroll2top",
+	"version": "2.0.0",
+	"description": "itcs_scroll2top plugin",
+	"license": "GPL-3.0-or-later",
+	"assets": [
+		{
+			"name": "plg_system_itcs_scroll2top.scroll2top",
+			"description": "scroll2top CSS",
+			"type": "style",
+			"uri": "plg_system_itcs_scroll2top/plg_scroll2top.css"		
+		},
+		{
+			"name": "plg_system_itcs_scroll2top.scroll2top",
+			"description": "scroll2top JavaScript",
+			"type": "script",
+			"uri": "plg_system_itcs_scroll2top/plg_scroll2top.js",
+			"dependencies": [
+				"core"
+			],
+			"attributes": {
+				"defer": true
+			}
+		},
+		{
+			"name": "plg_system_itcs_scroll2top.ion",
+			"description": "scroll2top ION CSS",
+			"type": "style",
+			"uri": "plg_system_itcs_scroll2top/ionicons.min.css"
+		},
+		{
+			"name": "plg_system_itcs_scroll2top.fa",
+			"description": "scroll2top FA CSS",
+			"type": "style",
+            "uri": "",
+            "dependencies": [
+                "fontawesome"
+              ]
+		}                
+	]
+}

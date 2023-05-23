@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<extension type="plugin" group="system" version="3.0" method="upgrade">
+  <name>PLG_SYSTEM_GOTOADMIN</name>
+  <description>PLG_SYSTEM_GOTOADMIN_DESC</description>
+  <version>1.0.2</version>
+  <copyright>Copyright (C) 2018 Mathew Lenning. All rights reserved.</copyright>
+  <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+  <author>Mathew Lenning</author>
+  <authorEmail>mathew.lenning@gmail.com</authorEmail>
+  <authorUrl>http://mathewlenning.com</authorUrl>
+  <creationDate>2021-05-27</creationDate>
+  <updateservers>
+    <server type="extension" name="GotoAdmin Updates">https://www.gotoextensions.com/gotoadmin.xml</server>
+  </updateservers>
+  <files>
+    <folder>language</folder>
+    <filename plugin="gotoadmin">gotoadmin.php</filename>
+    <filename>gotoadmin.xml</filename>
+  </files>
+  <config>
+    <fields name="params">
+      <fieldset name="basic">
+        <field name="redirect" type="text" label="PLG_SYSTEM_GOTOADMIN_REDIRECT" description="PLG_SYSTEM_GOTOADMIN_DESC_REDIRECT"/>
+        <field name="redirect_var" type="text" default="gtky_key" label="PLG_SYSTEM_GOTOADMIN_VARIABLE" description="PLG_SYSTEM_GOTOADMIN_DESC_VARIABLE"/>
+        <field name="redirect_val" type="text" default="1" label="PLG_SYSTEM_GOTOADMIN_VALUE" description="PLG_SYSTEM_GOTOADMIN_DESC_VALUE"/>
+      </fieldset>
+    </fields>
+  </config>
+</extension>

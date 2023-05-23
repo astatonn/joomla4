@@ -1,0 +1,268 @@
+@import "vars.less";
+/** Joomla 4 **/
+body:not(.with-joomla-sidebar):not(.site) header.header {
+  display:none;
+}
+
+body.@{mycomponent}, body.com_categories, body.com_fields {
+  .container-fluid {
+    padding: 0 0 0 0;
+  }
+  #wrapper #content { padding:0;}
+
+  .gsl-navbar-nav a[target="_blank"]::before {
+    content:none;
+  }
+
+  &:not(.with-joomla-sidebar):not(.site) header.header {
+    display: none;
+  }
+
+  &.with-joomla-sidebar {
+    /* See if we can get fixed positioning working as sticky */
+    #gslc.gsl-scope {
+     /* transform: translateZ(0);*/
+    }
+    #wrapper {
+      &.open {
+      }
+      &.closed {
+      }
+      > .container-fluid {
+        /* transform: translateZ(0);*/
+      }
+    }
+
+    #gslc.gsl-scope {
+      &.gsl-hide-sidebar #right-col:not(.noleftbar) {
+        margin-left: 0px;
+
+        #top-head {
+          position: sticky;
+          top: 0;
+        }
+      }
+      #left-col {
+        position: sticky;
+      }
+    }
+    header.header {
+     .header-inside {
+        height:0;
+        min-height:0;
+      }
+      .header-title, .header-items {
+        .header-item {
+          display: none !important;
+        }
+      }
+      .header-title {
+        .logo, .ysts-page-title, .page-title {
+          display:none;
+        }
+      }
+    }
+  }
+
+  button.navbar-toggler.toggler-toolbar {
+    display:none;
+  }
+
+  .container-main::after {
+    /* For when scrolling right a long way! */
+    background-color: var(--globalbackground);
+  }
+
+  /* Full sized screen */
+  #wrapper {
+    #subhead {
+      display:none;
+    }
+  }
+  &:not(.with-joomla-sidebar) #wrapper #sidebar-wrapper {
+    /* Always hide unless we implement toggle on/off */
+    display: none;
+    position: fixed;
+    height: 100%;
+    /* J4 sidebar */
+    &.gsl-hide-sidebar {
+      display: none;
+      transition: none;/*all .3s ease;*/
+    }
+  }
+
+
+  #gslc.gsl-scope {
+    #left-col {
+      /* 3rem for J4 sidebar
+      left: 3rem;
+       */
+      left: 0;
+      transition: none;/*all .3s ease;*/
+    }
+
+    #right-col:not(.noleftbar) #top-head {
+      /* 3rem for J4 sidebar
+      left: ~"calc(50px + 3rem)";
+       */
+      left:50px;
+      transition: none;/*all .3s ease;*/
+    }
+
+    .gsl-content, #ysts_system_messages {
+      /* 3rem for J4 sidebar
+      margin-left: 3rem;
+       */
+      margin-left: 0;
+      transition: none;/*all .3s ease;*/
+    }
+
+    /* Search filters display toggle */
+    .js-stools {
+      .js-stools-container-filters {
+        display: none;
+      }
+
+      .js-stools-container-filters.js-stools-container-filters-visible {
+        display: flex;
+        background-color: transparent;
+        margin:0 0 20px 10px;
+      }
+    }
+
+    /* dashboard newsfeed */
+    .ys_newsfeed
+    {
+      height: 80px;
+      overflow: hidden;
+      padding: 20px 0 20px 20px;
+      .gsl-slider-items li {
+        height: 80px;
+      }
+    }
+
+  }
+
+  #gslc.gsl-scope.gsl-hide-sidebar {
+    #left-col {
+      left: 0;
+    }
+
+    #right-col:not(.noleftbar) #top-head {
+      left:50px;
+    }
+
+    .gsl-content, #ysts_system_messages {
+      margin-left: 0;
+    }
+  }
+
+  #gslc.gsl-scope:not(.gsl-hide-sidebar) {
+    .left-nav {
+      span.nav-label {
+        display:none;
+      }
+    }
+  }
+/*
+  #gslc.gsl-scope.joomla-menu-open {
+    #left-col {
+      left: 18rem;
+    }
+
+    #right-col:not(.noleftbar) #top-head {
+      left: ~"calc(50px + 18rem)";
+    }
+
+    .gsl-content {
+      margin-left: 18rem;
+    }
+  }
+*/
+  #gslc.gsl-scope.no-joomla-menu {
+    #left-col {
+      left: 0;
+    }
+
+    #right-col:not(.noleftbar) #top-head {
+      left: 50px;
+    }
+
+    .gsl-content {
+      margin-left: 0;
+    }
+  }
+
+}
+
+body.com_categories.view-categories {
+  /* Full sized screen */
+  #gslc.gsl-scope {
+    #left-col {
+      left: 3rem;
+    }
+
+    #right-col #top-head {
+      left: ~"calc(50px + 3rem)";
+    }
+
+    .gsl-content {
+      margin-left: 3rem;
+    }
+
+    &.gsl-hide-sidebar {
+      #left-col {
+        left: 0;
+      }
+
+      #right-col:not(.noleftbar) #top-head {
+        left:50px;
+      }
+
+      .gsl-content, #ysts_system_messages {
+        margin-left: 0;
+      }
+    }
+    &:not(.gsl-hide-sidebar) {
+      .left-nav {
+        span.nav-label {
+          display:none;
+        }
+      }
+    }
+  }
+}
+
+#gslc.gsl-scope {
+  .gsl-grid.hidden {
+    display:none;
+  }
+}
+
+
+@media (max-width: 960px) {
+  body.@{mycomponent}, body.com_categories, body.com_fields {
+    #gslc.gsl-scope.gsl-hide-sidebar {
+      #right-col:not(.noleftbar)  #top-head {
+        /* 3rem for J4 sidebar
+        left: ~"calc(50px + 3rem)";
+         */
+        left: 0;
+      }
+    }
+  }
+
+}
+
+@media (max-width: 575.98px) {
+
+  body.@{mycomponent}, body.com_categories, body.com_fields {
+    &.with-joomla-sidebar header.header {
+      .header-title, .header-items {
+        min-height: 54px;
+      }
+    }
+  }
+}
+
+/** end Joomla 4**/

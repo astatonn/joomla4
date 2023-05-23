@@ -1,0 +1,217 @@
+// Your custom code goes here, e.g. mixins, variables.
+// See "how to create a theme" below for more info.
+@import "vars.less";
+//@import "j3.less"; // Joomla Overrides
+//@import "j4.less"; // Joomla Overrides
+@import "gslframework.less"; // General gslframework css file
+
+/* JEvents Specific CSS */
+/* Put responsive.less at the bottom so it can override other values */
+
+#gslc.gsl-scope {
+  /* Overriding template.css styling when using native Joomla layouts */
+
+  div#jevents {
+
+    margin-left:5px;
+
+    #adminForm
+    {
+
+      /* Buttons in forms */
+      /*
+      label.gsl-button-small {
+        padding-left: 15px;
+      }
+       */
+      /* select and input in event editing */
+      select, input {
+        max-width: 100%;
+        margin-bottom: 0;
+        /* Needed for BS 5 templates */
+        float: none;
+      }
+      input.form-check-input {
+        /* Needed for BS 5 templates */
+        margin-left : 0;
+      }
+      .input-group-text {
+        /* Needed for some BS 5 templates  */
+        display:initial;
+        padding: 1px;
+        border: none;
+      }
+      #myEditTabs li.hiddenTab {
+        display:none!important;
+      }
+
+      li.cleverGetHeightCSS {
+        display:block!important;
+        height: 0;
+        overflow: hidden;
+      }
+    }
+  }
+
+
+  /* Disabled left bar items */
+  #left-col ul.left-nav .notinstalled {
+      opacity : 0.25;
+  }
+
+  #left-col .left-nav img {
+    max-width: 20px;
+  }
+
+  .adminlist.table-striped {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+
+      .row0 {
+        td {
+          background-color: transparent;
+        }
+      }
+      .row1 {
+        td {
+          background-color: #eee;
+        }
+      }
+      .tags li {
+        display: inline-block;
+        margin:0 2px 4px 0;
+      }
+  }
+
+  /* Parameter editing for accordion */
+  .gsl-accordion-title.no-accordion-icon:before {
+    background-image:none;
+  }
+
+  /* Lightbox stuff that is missing in my old version of UIkit */
+  .gsl-lightbox {
+    display:none;
+    position:fixed;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    z-index:9999;
+    background:#000;
+    opacity:0;
+    transition:opacity .15s linear;
+    touch-action:pinch-zoom;
+
+    &.gsl-open {
+      display:block;
+      opacity:1;
+    }
+    & :focus {
+      outline-color:rgba(255,255,255,.7);
+    }
+    & :focus-visible {
+      outline-color:rgba(255,255,255,.7);
+    }
+  }
+  .gsl-lightbox-page {
+    overflow:hidden;
+  }
+  .gsl-lightbox-items>* {
+    position:absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    color:rgba(255,255,255,.7);
+    will-change:transform,opacity;
+  }
+  .gsl-lightbox-items>*>* {
+    max-width:100vw;
+    max-height:100vh;
+  }
+  .gsl-lightbox-items>*>:not(iframe) {
+    width:auto;
+    height:auto;
+  }
+  .gsl-lightbox-items>.gsl-active {
+    display:flex;
+  }
+  .gsl-lightbox-toolbar {
+    padding:10px 10px;
+    background:rgba(0,0,0,.3);
+    color:rgba(255,255,255,.7);
+  }
+  .gsl-lightbox-toolbar>* {
+    color:rgba(255,255,255,.7);
+  }
+  .gsl-lightbox-toolbar-icon {
+    padding:5px;
+    color:rgba(255,255,255,.7);
+  }
+  .gsl-lightbox-toolbar-icon:hover {
+    color:#fff;
+  }
+  .gsl-lightbox-button {
+    box-sizing:border-box;
+    width:50px;
+    height:50px;
+    background:rgba(0,0,0,.3);
+    color:rgba(255,255,255,.7);
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+  }
+  .gsl-lightbox-button:hover {
+    color:#fff;
+  }
+  .gsl-lightbox-caption:empty {
+    display:none;
+  }
+  .gsl-lightbox-iframe {
+    width:80%;
+    height:80%;
+  }
+}
+
+/* Overriding template.css styling when using native Joomla layouts for com_categories */
+body.com_categories {
+  #gslc.gsl-scope {
+    form#item-form {
+      margin-left: 5px;
+    }
+  }
+}
+
+/* com_fields */
+body.com_fields .gsl-content {
+  padding-left:10px;
+  padding-right:10px;
+
+  .btn-danger {
+    background-color: #f0506e;
+    color: #fff;
+  }
+  .btn-success {
+    background-color: #46a546;
+    color: #fff;
+  }
+  span.caret {
+    vertical-align:middle;
+    margin-left: 5px;
+  }
+
+}
+body.com_fields  #system-message-container {
+  float:none;
+  width:100%;
+}
+
+/* Fix wf-media-upload positioning */
+#jevents .wf-media-upload-button {display:inline-block;position:relative;}
+
+@import "responsive.less";
